@@ -1,0 +1,36 @@
+.header{
+    display:flex;
+    color:#E60000;
+    width:100vw;
+    height:91px;
+    background-color: #020203;
+    align-items: center;
+    z-index: 99;
+    font-size: 24px;
+}
+.logo_bg{
+    width: 178px;
+    height: 61px;
+    align-items: center;
+    display: flex;
+    margin-left: 28px;
+
+}
+.logo_bg img{
+    margin-right: 10px;
+    width:57.2px;
+    height:57.7px;
+    border-radius:28.5px ;
+    background-color: #E60000;
+    
+}
+.navbar{
+    width:90%;
+    display:flex;
+    justify-content: space-around;
+    
+}
+.navbar a{
+    text-decoration: none;
+    color: #FFFFFF;
+}

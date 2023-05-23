@@ -1,0 +1,13 @@
+.recharts-barchart{
+    background-color: #FBFBFB;
+    padding-top: 120px;
+    padding-left: 43px;
+    padding-right: 29px;
+}
+.barChart_title{
+    position: relative;
+    top:-65px;
+    left:32px;
+    z-index: 99;
+    font-size: 15px;
+}
