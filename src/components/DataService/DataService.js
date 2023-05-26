@@ -79,9 +79,11 @@ class HandledData {
 class MockApi {
     constructor(userId){
         this.userId =  userId
+        this.state ={isMockData: false}
     }
 
     getLocalData (objs,userId){
+        this.setState ={isMockData: true}
         return objs.find((obj) => { 
         const ID = (obj.id ? obj.id : obj.userId).toString()
         return ID === userId
@@ -109,6 +111,10 @@ class MockApi {
         const datas = this.getLocalData(dataLocal.PerformanceData,this.userId)
         const newData = new HandledData(datas).PerformanceData()
         return newData
+    }
+    mockState(){
+        console.log("this.state.isMockData",this.state.isMockData)
+        return this.state.isMockData
     }
 
 }
@@ -177,26 +183,26 @@ class Service {
         this.mockApi = new MockApi(this.userId)
     }
     getUserData() {
-        return this.realApi.getUserData() ?
-        this.realApi.getUserData(): this.mockApi.getUserData()
+        return (this.mockApi.mockState())?
+        this.mockApi.getUserData():this.realApi.getUserData()
     }
      
 
     getActivityData() {
-        return this.realApi.getActivityData() ?
-        this.realApi.getActivityData(): this.mockApi.getActivityData()
+        return (this.mockApi.mockState())?
+        this.mockApi.getActivityData():this.realApi.getActivityData()
 
     }
 
     getAverageSessionsData(){
-        return this.realApi.getAverageSessionsData() ?
-        this.realApi.getAverageSessionsData(): this.mockApi.getAverageSessionsData()
+        return (this.mockApi.mockState())?
+        this.mockApi.getAverageSessionsData():this.realApi.getAverageSessionsData()
        
     }
 
     getPerformanceData(){
-        return this.realApi.getPerformanceData() ?
-        this.realApi.getPerformanceData(): this.mockApi.getPerformanceData()
+        return (this.mockApi.mockState())?
+        this.mockApi.getPerformanceData():this.realApi.getPerformanceData()
  
     }
 }
