@@ -1,15 +1,31 @@
 
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis} from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis} from 'recharts';
+import'../../Style/RadarChart.css'
+
+const CustomizedAxisTick= (props) => {
+  const { x, y,cx,cy, payload,...rest } = props;
+   return (
+    <text
+      {...rest}
+      verticalanchor="middle" 
+      fill= "#ffff"
+      fontSize="12px"
+      y={y + (y - cy) / 10}
+      x={x}
+    >
+      {payload.value}
+    </text>
+  );
+}
 
 function GraphiqueRadarChart({data}) {
 
     console.log("RadarChart--------------------- data-------",data)
     return (
-        <RadarChart width={258} height={200} cx="50%" cy="50%" outerRadius="80%" data={data}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="kindName" />
-          <PolarRadiusAxis />
-          <Radar name="Mike" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+        <RadarChart width={258} height={220} cx="50%" cy="50%" outerRadius="80%" data={data}>
+          <PolarGrid gridType="polygon" radialLines={false} stroke="#FFFF"/>
+          <PolarAngleAxis dataKey="kindName" tick={<CustomizedAxisTick/>}   />
+          <Radar  dataKey="value" fill="rgba(255, 1, 1, 0.7)" fillOpacity={0.6} />
         </RadarChart>
       
     );
