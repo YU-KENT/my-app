@@ -22,10 +22,10 @@ const FetchData = (url)=> {
     fetchData()
     
     }, [url])
-    return {isLoading, datas }
+    return {isLoading,datas }
     }
 
-const getLocalDATAT = (objs,userId)=>{
+const getLocalData = (objs,userId)=>{
 console.log(objs,userId)
     return objs.find((obj) => { 
        const ID = obj.id ? obj.id : obj.userId
@@ -38,6 +38,12 @@ const joinUrl =(baseUrl,url)=> {
     return `${baseUrl}/${url}`
 }
 
+const numberWithCommas= (x)=> {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
+
 class Service{
     constructor(userId){
         this.userId =  userId
@@ -45,20 +51,39 @@ class Service{
     }
     
     getUserData() {
-        const {datas, isLoading } = FetchData(this.baseUrl)
-/*         const Jjjj = getLocalDATAT(dataLocal.UserData,this.userId) */
-        if (!isLoading) {
-            /* console.log("JsonJsonJson",Jjjj) */
-            console.log("userrrrrrrrrrrrr",datas)
-            const {userInfos,score,keyData} = datas
-            const {firstName,} = userInfos
-            return {userInfos,firstName,score,keyData}
+        const url = this.baseUrl
+        const {datas,isLoading} = FetchData(url,dataLocal.UserData,this.userId)
+
+        const score = datas.todayScore ? datas.todayScore : datas.score
+        const scorePercent = ( score*100)+'%'
+        const createdData = [
+                {name:scorePercent ,  value: score},
+                {name:scorePercent ,  value: (1-score)},
+              ]
+        const handledData = (data)=>{
+            const calories = numberWithCommas(data.calorieCount)
+            console.log(data)
+            let KeyObj =  {
+                Calories : calories + 'Kcal',
+                Proteines :data.proteinCount + 'g',
+                Glucides  :data.carbohydrateCount + 'g',
+                Lipides: data.lipidCount + 'g'
+                         }
+            return KeyObj 
         }
-       
+
+        if (!isLoading) {
+            const {userInfos,keyData} = datas
+            const {firstName,} = userInfos
+            const newKeyData = handledData(keyData)
+
+            return {userInfos,firstName,newKeyData,createdData}
+        }
     }
     getActivityData(){
         const url = joinUrl(this.baseUrl,'activity')
-        const {datas, isLoading } = FetchData(url)
+        const {datas, isLoading } = FetchData(url) 
+        /*  : getLocalData(dataLocal.ActivityData,this.userId) */
         const handledData = (sessions)=>{
             return sessions.map((session,index)=>{
             session.day = index + 1
@@ -72,6 +97,10 @@ class Service{
         }
     }
     getAverageSessionsData(){
+        const url = joinUrl(this.baseUrl,'average-sessions')
+        const {datas, isLoading } = FetchData(url)
+     
+
         const handledData = (sessions) =>{
             const arrDayName = ['L','M','M','J','V','S','D']
             return sessions.map((session,index) =>{
@@ -79,8 +108,6 @@ class Service{
             return{...session,dayName}
             })
         }
-        const url = joinUrl(this.baseUrl,'average-sessions')
-        const {datas, isLoading } = FetchData(url)
         if (!isLoading) {
             const{sessions} = datas
             const newData = handledData(sessions)
@@ -90,7 +117,9 @@ class Service{
 
     getPerformanceData(){
         const url = joinUrl(this.baseUrl,'performance')
-        const {datas, isLoading } = FetchData(url)
+        const {datas, isLoading } = FetchData(url) 
+        /* : getLocalData(dataLocal.PerformanceData,this.userId) */
+
         const handledData = (datas) =>{
             const KindObj = datas.kind
             return datas.data.map((data) => {
