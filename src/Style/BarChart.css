@@ -1,13 +1,35 @@
 .recharts-barchart{
     background-color: #FBFBFB;
-    padding-top: 120px;
+    padding-top: 100px;
     padding-left: 43px;
     padding-right: 29px;
+    padding-bottom: 20px;
 }
 .barChart_title{
     position: relative;
-    top:-65px;
+    top:-75px;
     left:32px;
     z-index: 99;
     font-size: 15px;
+    color:#20253A;
+
+}
+
+.text-color-class{
+    color:#74798C;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 32px;
+}
+.barChart-custom-tooltip{
+    height: 63px;
+    width: 39px;
+    background-color: #E60000;
+
+}
+.barChart-label{
+    text-align: center;
+    padding-top: 12px;
+    color: #ffff;
+    font-size: 7px !important;
 }
