@@ -112,10 +112,6 @@ class MockApi {
         const newData = new HandledData(datas).PerformanceData()
         return newData
     }
-    mockState(){
-        console.log("this.state.isMockData",this.state.isMockData)
-        return this.state.isMockData
-    }
 
 }
 
@@ -124,7 +120,7 @@ class RealApi {
     constructor(userId){
         this.userId =  userId
         this.baseUrl = `http://localhost:3000/user/${userId}`
-        
+        this.state ={isMockData: true}
     }
 
     getUserData() {
@@ -133,6 +129,7 @@ class RealApi {
         if(error)  return false
         if(isLoading) return false
         else{
+        this.setState ={isMockData: false}
         const newData = new HandledData(datas).UseData()
         console.log("getUserData API",newData,error)
         return newData
@@ -144,6 +141,7 @@ class RealApi {
         if(error)  return false
         if(isLoading) return false
         else{
+        this.setState ={isMockData: false}
         const newData = new HandledData(datas).ActivityData()
         console.log("getActivityData API",newData,error)
         return newData
@@ -155,6 +153,7 @@ class RealApi {
         if(error)  return false
         if(isLoading) return false
         else{
+        this.setState ={isMockData: false}
         const newData = new HandledData(datas).AverageSessionsData()
         console.log("getAverageSessionsData API",newData,error)
         return newData
@@ -166,10 +165,15 @@ class RealApi {
         if(error)  return false
         if(isLoading) return false
         else{
+        this.setState ={isMockData: false}
         const newData = new HandledData(datas).PerformanceData()
         console.log("getPerformanceData API",newData,error)
         return newData
         }
+    }
+    mockState(){
+        console.log("this.state.isMockData",this.state.isMockData)
+        return this.state.isMockData
     }
 
 }
@@ -183,26 +187,26 @@ class Service {
         this.mockApi = new MockApi(this.userId)
     }
     getUserData() {
-        return (this.mockApi.mockState())?
-        this.mockApi.getUserData():this.realApi.getUserData()
+        if (this.realApi.mockState())return this.mockApi.getUserData()
+        else return this.realApi.getUserData()
     }
      
 
     getActivityData() {
-        return (this.mockApi.mockState())?
-        this.mockApi.getActivityData():this.realApi.getActivityData()
+        if (this.realApi.mockState())return this.mockApi.getActivityData()
+        else return this.realApi.getActivityData()
 
     }
 
     getAverageSessionsData(){
-        return (this.mockApi.mockState())?
-        this.mockApi.getAverageSessionsData():this.realApi.getAverageSessionsData()
+        if (this.realApi.mockState())return this.mockApi.getAverageSessionsData()
+        else return this.realApi.getAverageSessionsData()
        
     }
 
     getPerformanceData(){
-        return (this.mockApi.mockState())?
-        this.mockApi.getPerformanceData():this.realApi.getPerformanceData()
+        if (this.realApi.mockState())return this.mockApi.getPerformanceData()
+        else return this.realApi.getPerformanceData()
  
     }
 }
