@@ -10,10 +10,10 @@ return(
            <img src={Logo} alt="logo"></img> <span>SportSee</span>
            </div>
            <nav className='navbar'>
-            <Link to='/'>Accueil</Link>
-            <Link to='/'>profil</Link>
-            <Link to='/'>Réglage</Link>
-            <Link to='/'>Communauté</Link>
+            <Link to='#'>Accueil</Link>
+            <Link to=''>profil</Link>
+            <Link to=''>Réglage</Link>
+            <Link to=''>Communauté</Link>
            </nav>
     
         </div>

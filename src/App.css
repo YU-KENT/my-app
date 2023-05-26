@@ -21,11 +21,27 @@
   flex-direction: column;
   margin-left: 107px;
 }
-.body p{
+.title_p{
   font-size: 18px;
-  margin-top: -5px;
+  margin-top: 0;
+}
+.App{
+  margin-top: 77px;
+  display: flex;
+
 }
 .Graphiques_small{
-  margin-top: 70px;
+  margin-top: 30px;
   display: flex;
+  width: 835px;
+}
+.Graphique_small{
+  width:258px;
+  height:263px;
+}
+
+
+.performances{
+  height:613px;
+  margin-left: 31px;
 }
