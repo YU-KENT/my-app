@@ -1,3 +1,45 @@
+#LineChart{
+    background-color: #FF0000;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    border-radius: 5px;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
 .LineChart_title{
-position: relative;
+    display: block;
+    margin-bottom: 0px;
+    width: 147px;
+    height: 48px;
+    margin-left: -34px;
+    margin-top: 29px;
+    color: #ffff;
+    opacity: 0.5;
+}
+.lineChart-text-class{
+    transform: scaleX(2);
+}
+
+.lineChart-custom-tooltip1{
+    background-color: #ffff;
+    width: 39px;
+    height:25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.lineChart-custom-tooltip1-label{
+   
+    margin-top: 10px !important;
+    font-size: 8px !important;
+    
+}
+.custom-tooltip2{
+    display: block;
+    height: 263px;
+    background-color: #000000;
+
 }
