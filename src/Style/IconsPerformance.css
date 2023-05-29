@@ -11,8 +11,8 @@
 .icons_performance{
     display: flex;
     flex-direction: column;
-    height:47px;
     margin-left: 24px;
+    margin-bottom: 8px;
 }
 .icons_performance p{
     font-size: 20px;

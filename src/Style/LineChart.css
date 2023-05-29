@@ -6,14 +6,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
   }
 
 .LineChart_title{
-    display: block;
+    position: absolute;
     margin-bottom: 0px;
     width: 147px;
     height: 48px;
-    margin-left: -34px;
+    margin-left: -48px;
     margin-top: 29px;
     color: #ffff;
     opacity: 0.5;

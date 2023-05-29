@@ -51,10 +51,11 @@ class HandledData {
     }
     AverageSessionsData(){
         const{sessions} = this.datas
-        const handledData = (sessions)=>{
-            return sessions.map((session,index)=>{
-            session.day = index + 1
-            return({...session})
+        const handledData = (sessions) =>{
+            const arrDayName = ['L','M','M','J','V','S','D']
+            return sessions.map((session,index) =>{
+            let dayName = arrDayName[index]
+            return{...session,dayName}
             })}
         const newData = handledData(sessions)
         return newData 
@@ -99,11 +100,13 @@ class MockApi {
     getActivityData(){
         const datas = this.getLocalData(dataLocal.ActivityData,this.userId)
         const newData = new HandledData(datas).ActivityData()
+       
         return newData
     }
     getAverageSessionsData(){
         const datas = this.getLocalData(dataLocal.AverageSessionsData,this.userId)
         const newData = new HandledData(datas).AverageSessionsData()
+        console.log("getAverageSessionsData",newData)
         return newData
 
     }
