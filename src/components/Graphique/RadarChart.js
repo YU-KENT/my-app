@@ -25,7 +25,7 @@ function GraphiqueRadarChart({data}) {
         <RadarChart width={258} height={220} cx="50%" cy="50%" outerRadius="80%" data={data}>
           <PolarGrid gridType="polygon" radialLines={false} stroke="#FFFF"/>
           <PolarAngleAxis dataKey="kindName" tick={<CustomizedAxisTick/>}   />
-          <Radar  dataKey="value" fill="rgba(255, 1, 1, 0.7)" fillOpacity={0.6} />
+          <Radar  dataKey="value" fill="#FF0101B2"/>
         </RadarChart>
       
     );
