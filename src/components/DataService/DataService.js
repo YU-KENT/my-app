@@ -70,7 +70,8 @@ class HandledData {
             return({...data,kindName})
             }) 
            }
-        const newData = handledData(this.datas)
+        const newData = handledData(this.datas).reverse()
+        console.log("reverse",newData)
         return newData
     }
 }

@@ -11,9 +11,9 @@ function GraphiquePieChart({data}) {
            <p className='PieChart_title_text'>de votre objectif</p>
         <PieChart width={258} height={200} >
             <Pie data={data} innerRadius={80} outerRadius={90} stroke='#FBFBFB'
-                dataKey="value" radius={[3, 3, 0, 0]} startAngle={90}>
-             {data.map((entry,index)=>(
-              <Cell key={`cell-${index}`} fill={COLORS[index]} />
+                dataKey="value" startAngle={90} cornerRadius={40} >
+              {data.map((entry,index)=>(
+              <Cell key={`cell-${index}`} fill={COLORS[index]}  />
              ))}
             </Pie>
             <Pie data={data} dataKey="value" innerRadius={0}  outerRadius={80}  fill="#FFFF">

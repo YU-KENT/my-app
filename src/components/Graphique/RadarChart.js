@@ -10,7 +10,7 @@ const CustomizedAxisTick= (props) => {
       verticalanchor="middle" 
       fill= "#ffff"
       fontSize="12px"
-      y={y + (y - cy) / 10}
+      y={y + (y - cy) /10}
       x={x}
     >
       {payload.value}
@@ -22,7 +22,7 @@ function GraphiqueRadarChart({data}) {
 
     console.log("RadarChart--------------------- data-------",data)
     return (
-        <RadarChart width={258} height={220} cx="50%" cy="50%" outerRadius="80%" data={data}>
+        <RadarChart width={258} height={225} cx="50%" cy="50%" outerRadius="80%" data={data} >
           <PolarGrid gridType="polygon" radialLines={false} stroke="#FFFF"/>
           <PolarAngleAxis dataKey="kindName" tick={<CustomizedAxisTick/>}   />
           <Radar  dataKey="value" fill="#FF0101B2"/>

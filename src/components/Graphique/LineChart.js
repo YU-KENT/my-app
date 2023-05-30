@@ -26,7 +26,7 @@ const CustomTooltip = ({ active, payload}) => {
 
 const CustomCursor = props => {
       const coordinateX = props.points[0].x
-      return <Rectangle fill="rgba(0,0,0,0.1)" x={coordinateX} y={0} width={263- coordinateX} height={663} />;
+      return <Rectangle fill="rgba(0,0,0,0.1)" x={coordinateX} y={0} width={263- coordinateX} height={263} />;
   };
 
 
@@ -39,7 +39,7 @@ function GraphiqueLineChart({data}) {
                 <YAxis  type="number" domain={[-15, 'dataMax + 40']} hide/>
                 <Tooltip content={<CustomTooltip />} cursor={<CustomCursor />} /> 
                 <Line type="natural" dataKey="sessionLength" height="160" stroke="#ffff" opacity="0.5" dot ={false} 
-                 strokeWidth={2} />
+                 strokeWidth={2}  />
           </LineChart>
         </>
       )
