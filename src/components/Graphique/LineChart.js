@@ -31,7 +31,7 @@ const CustomCursor = props => {
 
 
 function GraphiqueLineChart({data}) {
-    console.log("linechart",data )
+
     return(
         <><span className='LineChart_title'>Durée moyenne des sessions</span>
           <LineChart width={268} height={263} data={data}>

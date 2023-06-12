@@ -12,7 +12,7 @@ if (active && payload && payload.length) {
   }}
 
 function GraphiqueBarChart({data}) {
- console.log("GraphiqueBarChart",data)
+
   return(
         <div className='recharts-barchart'>
         <span className='barChart_title'>Activité quotidienne</span>

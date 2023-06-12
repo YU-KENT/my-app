@@ -20,7 +20,6 @@ const CustomizedAxisTick= (props) => {
 
 function GraphiqueRadarChart({data}) {
 
-    console.log("RadarChart--------------------- data-------",data)
     return (
         <RadarChart width={258} height={225} cx="50%" cy="50%" outerRadius="80%" data={data} >
           <PolarGrid gridType="polygon" radialLines={false} stroke="#FFFF"/>

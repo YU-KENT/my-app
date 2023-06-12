@@ -1,7 +1,7 @@
 import '../../Style/IconsPerformance.css'
 
-function IconsPerformance(data){
-const {value,src,nom} = data
+function IconsPerformance(propos){
+const {value,src,nom} = propos
 return(
 <div className="icons_bg">
   <div className='icons_icon' id={nom}>

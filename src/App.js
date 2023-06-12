@@ -17,13 +17,11 @@ import icon8 from'./assets/icon8.png'
 function App() {
   const userId = useParams();
   const services = new Service(userId.userId)
-
   const userData = services.getUserData()
   const activityData = services.getActivityData()
   const averageData = services.getAverageSessionsData()
   const performanceData = services.getPerformanceData()
-  console.log("uuu------------",userData,"ss---------",averageData,"-----pp----------",performanceData)
-
+  
   return userData ? (
     <>
       <Header />
@@ -50,9 +48,10 @@ function App() {
                         <div className='Graphique_small'id='RadarChart'>
                         {performanceData &&
                         <GraphiqueRadarChart data={performanceData}/> }
-                      </div>
+                       </div>
 
-                      <div className='Graphique_small' id='PieChart'><GraphiquePieChart data={userData.createdData} /></div>
+                        <div className='Graphique_small' id='PieChart'><GraphiquePieChart data={userData.createdData} />
+                        </div>
                     </div>
                  </div>
                   <div className='performances'>

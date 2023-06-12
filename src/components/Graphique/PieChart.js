@@ -1,10 +1,10 @@
 
-import { PieChart, Pie,Cell,Sector,Text} from 'recharts';
+import { PieChart, Pie,Cell} from 'recharts';
 import '../../Style/PieChart.css'
- const COLORS = ["#FF0000","#FBFBFB"]
+const COLORS = ["#FF0000","#FBFBFB"]
 
 function GraphiquePieChart({data}) {
-    console.log("score",data)
+
     return (
         <><span className='PieChart_title'>Score</span>
            <p className='PieChart_title_score'>{data[0].name}</p>
@@ -16,6 +16,7 @@ function GraphiquePieChart({data}) {
               <Cell key={`cell-${index}`} fill={COLORS[index]}  />
              ))}
             </Pie>
+            
             <Pie data={data} dataKey="value" innerRadius={0}  outerRadius={80}  fill="#FFFF">
             </Pie>
         </PieChart></>
