@@ -45,3 +45,19 @@
   height:613px;
   margin-left: 31px;
 }
+
+@media screen and (min-width:1024px) and (max-width: 1439px){
+  .body{
+    margin-left: 30px;
+  }
+ .App{
+  margin-top: -50px;
+  transform: scale(0.75);
+  margin-left: -137px;
+  
+ }
+.titles{
+  margin-top: -5px;
+}
+
+}

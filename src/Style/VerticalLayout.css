@@ -61,3 +61,25 @@
     top: 310px;
     left:28px;
   }
+
+  @media screen and (min-width:1024px) and (max-width: 1439px){
+
+  .vertical-navbar{
+    height:689px;
+  }
+  #layout-icon1{
+    top:130px;
+  }
+  #layout-icon2{
+    top:150px;
+  }
+  #layout-icon3{
+    top:170px;
+  }
+  #layout-icon4{
+    top:190px;
+  }
+  .layout-P{
+    top:305px;
+  }
+}
