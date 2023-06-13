@@ -8,7 +8,7 @@ import GraphiquePieChart from './components/Graphique/PieChart';
 import VerticalLayout from './components/VerticalLayout/VerticalLayout';
 import Header from './components/Hearder/Header';
 import IconsPerformance from './components/IconsPerformance/IconsPerformance';
-import Service from './components/DataService/DataService';
+import Service from './Api/DataService';
 import icon5 from'./assets/icon5.png'
 import icon6 from'./assets/icon6.png'
 import icon7 from'./assets/icon7.png'
@@ -35,7 +35,7 @@ function App() {
               <p className='title_p'>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
         
               <div className="App">
-                <div className='Graphiques'>
+                  <div className='Graphiques'>
                     {activityData &&
                     <GraphiqueBarChart data={activityData} />}
 
